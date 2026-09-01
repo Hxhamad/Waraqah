@@ -1,0 +1,17 @@
+▲ Next.js 16.3.4 (webpack)
+- Local:         http://localhost:3311
+- Network:       http://100.112.142.18:3311
+- Environments: .env.local
+✓ Ready in 363ms
+⚠ Attempted to load @next/swc-win32-x64-msvc, but an error occurred: An Application Control policy has blocked this file.
+\\?\C:\Users\Hamad\waraqah-build\Waraqah\frontend\node_modules\@next\swc-win32-x64-msvc\next-swc.win32-x64-msvc.node
+✓ Running next.config.ts took 3.3s
+  Skipping creating a lockfile at C:\Users\Hamad\waraqah-build\Waraqah\frontend\.next\dev\lock because we're using WASM bindings
+
+○ Compiling / ...
+ GET / 200 in 6.4s (next.js: 6.2s, application-code: 215ms)
+ GET / 200 in 39ms (next.js: 7ms, application-code: 33ms)
+ GET / 200 in 51ms (next.js: 4ms, application-code: 47ms)
+ GET / 200 in 25ms (next.js: 2.0ms, application-code: 23ms)
+ GET / 200 in 63ms (next.js: 7ms, application-code: 57ms)
+ GET / 200 in 47ms (next.js: 8ms, application-code: 39ms)

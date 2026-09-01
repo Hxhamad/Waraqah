@@ -4,6 +4,7 @@ from collections import defaultdict
 from fastapi import FastAPI, Request, HTTPException
 from fastapi.middleware.cors import CORSMiddleware
 
+from fastapi.responses import JSONResponse
 from waraqah.core.config import RATE_LIMIT_PER_MINUTE
 from waraqah.core.db import init_db
 from waraqah.api.stocks import router as stocks_router, compare_router
@@ -42,7 +43,9 @@ async def rate_limit_middleware(request: Request, call_next):
     ]
 
     if len(rate_limit_store[client_ip]) >= RATE_LIMIT_PER_MINUTE:
-        raise HTTPException(status_code=429, detail="Rate limit exceeded")
+        # Plain JSONResponse: raising HTTPException inside middleware bypasses
+        # exception handlers and surfaces as a 500.
+        return JSONResponse(status_code=429, content={"detail": "Rate limit exceeded"})
 
     rate_limit_store[client_ip].append(now)
     return await call_next(request)

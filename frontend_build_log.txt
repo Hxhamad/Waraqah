@@ -1,0 +1,36 @@
+## Summary
+
+**What was built:**
+
+| Component | Implementation |
+|-----------|----------------|
+| **Layout** | Three-column: chart workspace (fluid), AI Analyst (372px), icon rail (52px) |
+| **Header** | Brand "Waraqah", omni-search, portfolio chip with value/change |
+| **Chart** | Candlesticks + SMA(10) + volume via `lightweight-charts` v5, agent overlay annotations |
+| **AI Analyst Panel** | Insight cards, confidence badges, conversation bubbles, suggested prompts, "coming online" state |
+| **Watchlist** | Agent-ranked with signal pills (Breakout/Accumulating/Weak tape), live data from `/movers` |
+| **Icon Rail** | 7 workspace icons with active state |
+| **Ticker Tabs** | Multi-symbol workspace tabs |
+
+**Design tokens (Lattice):**
+- Canvas: `#e9e7e2`, Surface: white, radius 20px
+- Agent accent: `#5b46d8` on `#f1eeff`
+- Up/Down: `#12a55f`/`#e5484d`
+- Fonts: Manrope (UI) + JetBrains Mono (numerals)
+
+**API wiring:**
+- `/stock/{symbol}` - stock profile + metrics
+- `/movers` - watchlist data
+- `/macro` - macro strip (ready to wire)
+- `/agent/chat` - gracefully shows "Agent coming online" on 501
+
+**Build status:** PASSED (`npm run build` with webpack)
+
+**Deviations:**
+1. RTL set on root (`dir=rtl`) per spec - Arabic-first ready
+2. Chart uses mock candle data (real price from API as base) - no historical data endpoint
+3. Used `lightweight-charts` v5 with type assertions (API changed from v4)
+4. Agent panel shows offline state until `/agent/chat` returns real responses
+5. Brand shows "Waraqah" not "Lattice" (per spec's Arabic branding requirement)
+
+**Commit:** `3b2e53d` pushed to `main`

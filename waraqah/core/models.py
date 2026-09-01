@@ -1,6 +1,6 @@
 """Pydantic models for API requests and responses."""
 from typing import Optional, List, Literal
-from pydantic import BaseModel, Field
+from pydantic import BaseModel, Field, field_validator
 from datetime import datetime
 
 
@@ -82,6 +82,13 @@ class AlertCreate(BaseModel):
     symbol: str
     direction: Literal["above", "below"]
     target: float
+
+    @field_validator("target")
+    @classmethod
+    def target_must_be_positive(cls, v):
+        if v <= 0:
+            raise ValueError("target must be a positive price")
+        return v
 
 
 class Alert(BaseModel):
