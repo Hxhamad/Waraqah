@@ -103,11 +103,9 @@ class TestAlerts:
 
 
 class TestPortfolio:
-    def test_portfolio_analysis(self, client):
-        import os
-        os.environ["DATABASE_PATH"] = str(client.app.state.test_db if hasattr(client.app.state, 'test_db') else "test.db")
-
-        with get_db() as conn:
+    def test_portfolio_analysis(self, client, tmp_path):
+        db_path = str(tmp_path / "test.db")
+        with get_db(db_path) as conn:
             conn.execute(
                 "INSERT OR REPLACE INTO snapshots (code, data, updated_at) VALUES (?, ?, ?)",
                 ("2222", json.dumps({"code": "2222", "price": 35.0, "vol_regime": "NORMAL"}), "2024-01-01"),

@@ -1,4 +1,5 @@
 """SQLite database initialization and connection."""
+import os
 import sqlite3
 from contextlib import contextmanager
 from waraqah.core.config import DATABASE_PATH
@@ -70,7 +71,9 @@ CREATE TABLE IF NOT EXISTS macro_cache (
 
 
 def get_connection(db_path: str = None) -> sqlite3.Connection:
-    path = db_path or DATABASE_PATH
+    # Resolve at call time so tests (and deploys) can repoint the DB via env
+    # without re-importing modules.
+    path = db_path or os.environ.get("DATABASE_PATH") or DATABASE_PATH
     conn = sqlite3.connect(path, check_same_thread=False)
     conn.row_factory = sqlite3.Row
     return conn
