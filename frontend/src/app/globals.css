@@ -1,0 +1,66 @@
+@import url('https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap');
+@import "tailwindcss";
+
+:root {
+  --canvas: #e9e7e2;
+  --surface: #ffffff;
+  --inset: #f4f3f0;
+  --ink-primary: #15161a;
+  --ink-secondary: #6c6b67;
+  --ink-tertiary: #a3a29d;
+  --up: #12a55f;
+  --down: #e5484d;
+  --agent: #5b46d8;
+  --agent-bg: #f1eeff;
+  --agent-border: #ded6ff;
+  --border: #eceae6;
+  --border-light: #f2f1ee;
+}
+
+@theme inline {
+  --color-canvas: var(--canvas);
+  --color-surface: var(--surface);
+  --color-inset: var(--inset);
+  --color-ink-primary: var(--ink-primary);
+  --color-ink-secondary: var(--ink-secondary);
+  --color-ink-tertiary: var(--ink-tertiary);
+  --color-up: var(--up);
+  --color-down: var(--down);
+  --color-agent: var(--agent);
+  --color-agent-bg: var(--agent-bg);
+  --color-agent-border: var(--agent-border);
+  --color-border: var(--border);
+  --color-border-light: var(--border-light);
+  --font-sans: 'Manrope', sans-serif;
+  --font-mono: 'JetBrains Mono', monospace;
+}
+
+body {
+  background: var(--canvas);
+  color: var(--ink-primary);
+  font-family: 'Manrope', sans-serif;
+  -webkit-font-smoothing: antialiased;
+  margin: 0;
+}
+
+@keyframes blink {
+  0%, 100% { opacity: 0.25; }
+  50% { opacity: 1; }
+}
+
+@keyframes rise {
+  from { opacity: 0; transform: translateY(6px); }
+  to { opacity: 1; transform: none; }
+}
+
+.animate-blink {
+  animation: blink 1.8s infinite;
+}
+
+.animate-rise {
+  animation: rise 0.4s ease both;
+}
+
+.font-mono {
+  font-family: 'JetBrains Mono', monospace;
+}
