@@ -166,8 +166,9 @@ class TestCompare:
 
 
 class TestAgent:
-    def test_agent_returns_501(self, client):
+    def test_agent_returns_streaming_response(self, client):
         response = client.post("/agent/chat", json={
             "message": "Hello"
         })
-        assert response.status_code == 501
+        assert response.status_code == 200
+        assert "text/event-stream" in response.headers.get("content-type", "")

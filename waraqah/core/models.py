@@ -133,4 +133,6 @@ class MacroStrip(BaseModel):
 
 class AgentChatRequest(BaseModel):
     message: str
+    symbol: Optional[str] = None
+    portfolio_id: Optional[str] = None
     context: Optional[dict] = None

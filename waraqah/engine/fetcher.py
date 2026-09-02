@@ -470,6 +470,72 @@ def fetch_quick(codes, data_dir="data"):
     return results
 
 
+def fetch_global(ticker_id: str) -> Optional[Dict[str, Any]]:
+    """Fetch snapshot data for a global (non-Tadawul) ticker.
+
+    Unlike fetch_one, this takes the full ticker ID (e.g. AAPL, RELIANCE.NS)
+    and returns data without writing to the SQLite snapshots table.
+    """
+    import yfinance as yf
+
+    try:
+        ticker = yf.Ticker(ticker_id)
+    except Exception:
+        return None
+
+    try:
+        hist = ticker.history(period="max")
+    except Exception:
+        hist = None
+    if hist is None or getattr(hist, "empty", True) or "Close" not in hist.columns:
+        return None
+
+    closes = hist["Close"].dropna()
+    if len(closes) == 0:
+        return None
+
+    try:
+        info = ticker.info or {}
+    except Exception:
+        info = {}
+
+    close_list = [float(x) for x in closes.tolist()]
+    last_date = closes.index[-1]
+
+    two_years = _safe(lambda: closes.loc[last_date - timedelta(days=730):])
+    dd_values = [float(x) for x in two_years.tolist()] if two_years is not None else []
+
+    snapshot = {
+        "code": ticker_id,
+        "name_en": info.get("longName") or info.get("shortName") or None,
+        "sector": info.get("sector") or None,
+        "price": _round(closes.iloc[-1], 4),
+        "ret_1w": _trailing_return(closes, 7),
+        "ret_1m": _trailing_return(closes, 30),
+        "ret_3m": _trailing_return(closes, 91),
+        "ret_6m": _trailing_return(closes, 182),
+        "ret_1y": _trailing_return(closes, 365),
+        "rsi14": _round(_safe(rsi14, close_list), 2),
+        "vol_regime": _safe(vol_regime, close_list),
+        "sma200_flag": _safe(sma200_flag, close_list),
+        "maxdd_2y": _round(_safe(max_drawdown, dd_values)),
+        "momentum": _round(_safe(momentum_12_1, close_list)),
+    }
+
+    roe = _num(info.get("returnOnEquity"))
+    snapshot["info"] = {
+        "pe": _round(info.get("trailingPE"), 4),
+        "roe": None if roe is None else round(roe * 100.0, 4),
+        "payout": _round(info.get("payoutRatio"), 4),
+        "div5y": _round(info.get("fiveYearAvgDividendYield"), 4),
+        "div_yield": _round(info.get("dividendYield"), 4) if info.get("dividendYield") else None,
+        "market_cap": _num(info.get("marketCap")),
+        "currency": info.get("currency"),
+    }
+
+    return snapshot
+
+
 def fetch_macro():
     """Fetch macro indicators: Brent, Gold, USD/SAR, BTC, MSCI-KSA."""
     import yfinance as yf

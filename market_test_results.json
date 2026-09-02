@@ -1,0 +1,311 @@
+[
+  {
+    "symbol": "AAPL",
+    "market": "US",
+    "expected_currency": "USD",
+    "http_status": 200,
+    "elapsed_s": 20.3,
+    "event_kinds": [
+      "start",
+      "tool_call",
+      "tool_result",
+      "tool_call",
+      "tool_result",
+      "answer",
+      "done"
+    ],
+    "confidence": "high",
+    "tools_used": [
+      "get_stock_profile",
+      "dividend_info"
+    ],
+    "llm_used": true,
+    "answer": "# Apple Inc. (AAPL) — Educational Profile\n\n## Company & Price\n- **Company:** Apple Inc., Technology sector *(get_stock_profile)*\n- **Price:** $325.13 USD *(get_stock_profile, dividend_info)*\n- **Market cap:** ~$4.75 trillion *(get_stock_profile)*\n\n**Recent performance** *(get_stock_profile)*:\n| Period | Return |\n|---|---|\n| 1 Week | +4.91% |\n| 1 Month | +5.34% |\n| 3 Months | +3.24% |\n| 6 Months | +23.04% |\n| 1 Year | +40.58% |\n\n## Valuation\n- **P/E ratio:** 37.3 — the stock trades at a high earnings multiple relative to typical market averages, meaning investors pay ~$37 per $1 of earnings *(get_stock_profile)*\n- **ROE:** 148.8% — extremely high, partly reflecting Apple's large share buybacks that shrink equity capital *(get_stock_profile)*\n- **Technical position:** Trading above its 200-day moving average; RSI at 61.2 (neutral-to-mildly-strong territory) *(get_stock_profile)*\n\n## Dividends\n- **Dividend yield:** 0.34% — a low yield, common for growth-oriented tech firms *(dividend_info)*\n- **Annual dividend:** $1.11 per share *(dividend_info)*\n- **Payout ratio:** 12.0% — Apple distributes only a small portion of earnings as dividends, retaining most for buybacks and reinvestment *(dividend_info)*\n\n## Risk Context\n- **Volatility regime:** HIGH *(get_stock_profile)*\n- **Max drawdown (2Y):** −33.4% — the stock has historically experienced significant peak-to-trough declines *(get_stock_profile)*\n\n---\n*Educational analysis only — not financial advice. Past performance does not guarantee future results.*",
+    "grounded_profile": {
+      "code": "AAPL",
+      "name": "Apple Inc.",
+      "price": 325.13,
+      "currency": "USD",
+      "pe": 37.3284,
+      "div_yield": 0.34,
+      "roe": 148.751,
+      "score": 55.0,
+      "rating": "تعزيز/احتفاظ"
+    },
+    "currency_ok": true,
+    "grounding_checked": 5,
+    "grounding_problems": [],
+    "pass": true
+  },
+  {
+    "symbol": "MSFT",
+    "market": "US",
+    "expected_currency": "USD",
+    "http_status": 200,
+    "elapsed_s": 17.5,
+    "event_kinds": [
+      "start",
+      "tool_call",
+      "tool_result",
+      "tool_call",
+      "tool_result",
+      "answer",
+      "done"
+    ],
+    "confidence": "high",
+    "tools_used": [
+      "get_stock_profile",
+      "dividend_info"
+    ],
+    "llm_used": true,
+    "answer": "# Microsoft Corporation (MSFT) — Educational Profile\n\n## Company Overview\nMicrosoft Corporation is a **Technology** sector company. *(Source: get_stock_profile)*\n\n## Price & Performance\n- **Current price:** $501.02 USD *(Source: get_stock_profile, dividend_info)*\n- **Market capitalization:** ~$3.72 trillion *(Source: get_stock_profile)*\n- **Recent returns** *(Source: get_stock_profile)*:\n  - 1 Week: +1.89%\n  - 1 Month: +8.01%\n  - 3 Months: +13.74%\n  - 6 Months: +26.22%\n  - 1 Year: −0.31%\n- Trading **above its 200-day moving average**, with an RSI(14) of **64.09** and a **HIGH** volatility regime. *(Source: get_stock_profile)*\n\n## Valuation Metrics\n*(Source: get_stock_profile)*\n- **P/E ratio:** 27.90 — meaning the stock trades at roughly 28x annual earnings.\n- **Return on Equity (ROE):** 34.04% — a measure of how efficiently the company generates profit from shareholders' equity.\n- **2-year maximum drawdown:** −34.50% — the worst peak-to-trough decline over the past two years.\n\n## Dividends\n*(Source: dividend_info)*\n- **Annual dividend per share:** $3.6073\n- **Dividend yield:** 0.72% — relatively low, typical of growth-oriented tech companies that reinvest earnings.\n- **Payout ratio:** 19.83% — the company pays out about 20% of its earnings as dividends, leaving substantial room for reinvestment or future dividend growth.\n\n## Summary\nMSFT combines a premium valuation (P/E ~28) with strong profitability (ROE ~34%) and a modest, well-covered dividend (low payout ratio). Note that the tool assigns a composite score of 50.0 with a rating of \"تعزيز/احتفاظ\" (accumulate/hold). *(Source: get_stock_profile)*\n\n*This is educational information only, not financial advice.*",
+    "grounded_profile": {
+      "code": "MSFT",
+      "name": "Microsoft Corporation",
+      "price": 501.02,
+      "currency": "USD",
+      "pe": 27.8964,
+      "div_yield": 0.72,
+      "roe": 34.039,
+      "score": 50.0,
+      "rating": "تعزيز/احتفاظ"
+    },
+    "currency_ok": true,
+    "grounding_checked": 7,
+    "grounding_problems": [],
+    "pass": true
+  },
+  {
+    "symbol": "RELIANCE.NS",
+    "market": "India",
+    "expected_currency": "INR",
+    "http_status": 200,
+    "elapsed_s": 26.7,
+    "event_kinds": [
+      "start",
+      "tool_call",
+      "tool_result",
+      "tool_call",
+      "tool_result",
+      "answer",
+      "done"
+    ],
+    "confidence": "high",
+    "tools_used": [
+      "get_stock_profile",
+      "dividend_info"
+    ],
+    "llm_used": true,
+    "answer": "# Reliance Industries Limited (RELIANCE.NS) — Educational Profile\n\n*Sector: Energy | Data sources: get_stock_profile, dividend_info*\n\n## 📈 Price & Performance\n- **Current price:** 1,309.00 INR (get_stock_profile; confirmed by dividend_info)\n- **Returns:**\n  - 1 Week: −0.61%\n  - 1 Month: +0.09%\n  - 3 Months: +0.03%\n  - 6 Months: −3.16%\n  - 1 Year: −2.87%\n- **Trend context:** Trading **below its 200-day SMA** (get_stock_profile), which typically indicates a longer-term downtrend or consolidation phase.\n- **RSI (14):** 51.48 — roughly neutral territory (neither overbought nor oversold).\n- **Volatility regime:** NORMAL (get_stock_profile)\n- **Max drawdown (2Y):** −23.87% (get_stock_profile)\n\n## 💰 Valuation\n- **P/E ratio:** 23.71 — meaning the stock trades at roughly 23.7× its annual earnings (get_stock_profile)\n- **ROE:** Not available in the data\n- **Market cap:** Not available in the data\n\n*For context, a P/E in the low 20s is common for large diversified Indian conglomerates, but it should be compared against sector peers and historical norms to judge relative value.*\n\n## 💵 Dividends\n- **Dividend yield:** 0.47% (dividend_info)\n- **Annual dividend per share:** ~6.15 INR (dividend_info)\n- **Payout ratio:** 20.83% — meaning Reliance distributes about 21% of its earnings as dividends, retaining the rest for reinvestment (dividend_info)\n\n*Interpretation: the low payout ratio and modest yield suggest a company prioritizing growth/reinvestment over income distribution — typical for conglomerates in expansion phases.*\n\n## ⚠️ Notes\n- The tool assigns a quantitative rating of **\"Sell\" (score: 41/100)** based on its internal model (get_stock_profile). This is a data point from the model, **not** a recommendation.\n- This is an **educational profile only**, not financial advice. Past performance does not guarantee future results.",
+    "grounded_profile": {
+      "code": "RELIANCE.NS",
+      "name": "Reliance Industries Limited",
+      "price": 1309.0,
+      "currency": "INR",
+      "pe": 23.7095,
+      "div_yield": 0.47,
+      "roe": null,
+      "score": 41.0,
+      "rating": "بيع"
+    },
+    "currency_ok": true,
+    "grounding_checked": 6,
+    "grounding_problems": [
+      "stated 'P/E in the low 20' not found in tool payload"
+    ],
+    "pass": false
+  },
+  {
+    "symbol": "7203.T",
+    "market": "Japan",
+    "expected_currency": "JPY",
+    "http_status": 200,
+    "elapsed_s": 19.4,
+    "event_kinds": [
+      "start",
+      "tool_call",
+      "tool_result",
+      "tool_call",
+      "tool_result",
+      "answer",
+      "done"
+    ],
+    "confidence": "high",
+    "tools_used": [
+      "get_stock_profile",
+      "dividend_info"
+    ],
+    "llm_used": true,
+    "answer": "# Toyota Motor Corporation (7203.T) — Educational Profile\n\n## Company Overview\n- **Name:** Toyota Motor Corporation (per `get_stock_profile`)\n- **Sector:** Consumer Cyclical\n- **Market Cap:** ~¥37.2 trillion (per `get_stock_profile`)\n\n## Price & Recent Performance\n- **Current Price:** ¥3,143.0 (per `get_stock_profile`, confirmed by `dividend_info`)\n- **Returns (per `get_stock_profile`):**\n  - 1 Week: +2.38%\n  - 1 Month: +6.06%\n  - 3 Months: +9.09%\n  - 6 Months: −9.38%\n  - 1 Year: +12.89%\n\n## Valuation\n- **P/E Ratio:** 8.94 — the stock trades at a relatively low earnings multiple (per `get_stock_profile`)\n- **ROE:** 12.40% — indicating moderate profitability on shareholder equity (per `get_stock_profile`)\n\n## Dividends\n- **Dividend Yield:** 3.08% (per `dividend_info` and `get_stock_profile`)\n- **Annual Dividend per Share:** ¥96.80 (per `dividend_info`)\n- **Payout Ratio:** 27.04% — meaning roughly a quarter of earnings are distributed as dividends, leaving room for reinvestment (per `dividend_info`)\n\n## Technical & Risk Context\n- **200-Day Moving Average:** Price is currently *below* it (per `get_stock_profile`)\n- **RSI (14):** 57.66 — neutral territory, neither overbought nor oversold (per `get_stock_profile`)\n- **Volatility Regime:** HIGH (per `get_stock_profile`)\n- **2-Year Max Drawdown:** −30.88% — the stock has experienced significant downside historically (per `get_stock_profile`)\n\n## Educational Takeaway\nToyota presents a combination of a low P/E multiple, a moderate dividend yield with a conservative payout ratio, and a solid 1-year return despite a negative 6-month stretch. However, it currently sits below its 200-day average and operates in a high-volatility regime, which are factors worth understanding when studying its price behavior.\n\n*This is educational analysis only, not financial advice. Always do your own research or consult a licensed advisor before making investment decisions.*",
+    "grounded_profile": {
+      "code": "7203.T",
+      "name": "Toyota Motor Corporation",
+      "price": 3143.0,
+      "currency": "JPY",
+      "pe": 8.9422,
+      "div_yield": 3.08,
+      "roe": 12.404,
+      "score": 62.0,
+      "rating": "تعزيز/احتفاظ"
+    },
+    "currency_ok": true,
+    "grounding_checked": 4,
+    "grounding_problems": [],
+    "pass": true
+  },
+  {
+    "symbol": "SHEL.L",
+    "market": "UK",
+    "expected_currency": "GBp",
+    "http_status": 200,
+    "elapsed_s": 31.3,
+    "event_kinds": [
+      "start",
+      "tool_call",
+      "tool_result",
+      "tool_call",
+      "tool_result",
+      "answer",
+      "done"
+    ],
+    "confidence": "high",
+    "tools_used": [
+      "get_stock_profile",
+      "dividend_info"
+    ],
+    "llm_used": true,
+    "answer": "# Shell plc (SHEL.L) — Educational Profile\n\n## Company Overview\n- **Name/Sector:** Shell plc, Energy sector *(get_stock_profile)*\n- **Currency:** Quoted in GBp (pence sterling)\n\n## Price & Performance\n- **Current price:** 3,432.5 GBp (equivalent to ~£34.33 per share) *(get_stock_profile, dividend_info)*\n- **Returns** *(get_stock_profile)*:\n  - 1 Week: +1.36%\n  - 1 Month: +1.46%\n  - 3 Months: +6.78%\n  - 6 Months: +9.62%\n  - 1 Year: +26.38%\n- **Technical context** *(get_stock_profile)*:\n  - Trading **above** its 200-day moving average\n  - RSI(14): 60.65 (neutral-to-mildly-strong territory)\n  - Volatility regime: **HIGH**\n  - Max drawdown (2Y): −19.82%\n\n## Valuation\n*(get_stock_profile)*\n- **P/E ratio:** 10.28 — a relatively low earnings multiple, common among large energy companies\n- **Return on Equity (ROE):** 14.34%\n- **Market capitalization:** ~189.0 billion (as reported by the tool)\n\n## Dividends\n*(dividend_info)*\n- **Dividend yield:** 3.46%\n- **Annual dividend per share:** 118.76 GBp (~£1.19)\n- **Payout ratio:** 32.82% — meaning roughly one-third of earnings are distributed as dividends, leaving room for reinvestment or buybacks\n\n## Platform Composite Score\n- **Score:** 77.0, rated \"شراء\" (Buy) by the platform's quantitative model *(get_stock_profile)* — note this is a model output, not a personal recommendation.\n\n---\n*This is educational information based on the cited data tools, not financial advice. Energy stocks are exposed to commodity price cycles, and past returns don't guarantee future performance.*",
+    "grounded_profile": {
+      "code": "SHEL.L",
+      "name": "Shell plc",
+      "price": 3432.5,
+      "currency": "GBp",
+      "pe": 10.2769,
+      "div_yield": 3.46,
+      "roe": 14.341,
+      "score": 77.0,
+      "rating": "شراء"
+    },
+    "currency_ok": true,
+    "grounding_checked": 6,
+    "grounding_problems": [],
+    "pass": true
+  },
+  {
+    "symbol": "SAP.DE",
+    "market": "Germany",
+    "expected_currency": "EUR",
+    "http_status": 200,
+    "elapsed_s": 30.6,
+    "event_kinds": [
+      "start",
+      "tool_call",
+      "tool_result",
+      "tool_call",
+      "tool_result",
+      "answer",
+      "done"
+    ],
+    "confidence": "high",
+    "tools_used": [
+      "get_stock_profile",
+      "dividend_info"
+    ],
+    "llm_used": true,
+    "answer": "# SAP SE (SAP.DE) — Educational Profile\n\n## Company Snapshot\n- **Name/Sector:** SAP SE — Technology sector *(get_stock_profile)*\n- **Price:** €190.90 *(get_stock_profile; confirmed by dividend_info)*\n- **Market Cap:** ~€212.67 billion *(get_stock_profile)*\n\n## Price & Momentum\n- **Returns:** 1M +21.07%, 3M +13.70%, 6M +13.56%, 1Y −16.21% *(get_stock_profile)*\n- **Trend:** Trading **above** its 200-day moving average *(get_stock_profile)*\n- **RSI (14):** 69.43 — just below the commonly used \"overbought\" threshold of 70 *(get_stock_profile)*\n- **Volatility regime:** HIGH; **2-year max drawdown:** −53.02% *(get_stock_profile)*\n\n*Educational note:* RSI measures recent momentum (above 70 often flags stretched short-term moves). Max drawdown shows the worst peak-to-trough decline over the period — useful for gauging downside risk historically.\n\n## Valuation\n- **P/E ratio:** 27.58 — the market pays ~€27.58 per €1 of annual earnings *(get_stock_profile)*\n- **Return on Equity (ROE):** 18.32% — how efficiently the company generates profit on shareholders' equity *(get_stock_profile)*\n\n*Educational note:* A P/E of ~28 is above the broad market average, which is common for large technology firms expected to grow earnings.\n\n## Dividends\n- **Annual dividend per share:** €2.5008 *(dividend_info)*\n- **Dividend yield:** 1.31% *(dividend_info)*\n- **Payout ratio:** 37.43% — the company distributes ~37% of earnings, retaining the rest *(dividend_info)*\n\n*Educational note:* SAP's yield is modest, typical of tech companies that prioritize reinvestment. A sub-40% payout ratio generally leaves room to sustain or grow the dividend.\n\n---\n⚠️ *This is educational information only, based on the cited data sources, and is not financial advice or a recommendation to buy or sell any security.*",
+    "grounded_profile": {
+      "code": "SAP.DE",
+      "name": "SAP SE",
+      "price": 190.9,
+      "currency": "EUR",
+      "pe": 27.5838,
+      "div_yield": 1.31,
+      "roe": 18.321,
+      "score": 43.0,
+      "rating": "بيع"
+    },
+    "currency_ok": true,
+    "grounding_checked": 5,
+    "grounding_problems": [],
+    "pass": true
+  },
+  {
+    "symbol": "2222.SR",
+    "market": "Saudi",
+    "expected_currency": "SAR",
+    "http_status": 200,
+    "elapsed_s": 23.5,
+    "event_kinds": [
+      "start",
+      "tool_call",
+      "tool_result",
+      "tool_call",
+      "tool_result",
+      "answer",
+      "done"
+    ],
+    "confidence": "high",
+    "tools_used": [
+      "get_stock_profile",
+      "dividend_info"
+    ],
+    "llm_used": true,
+    "answer": "# Educational Profile: Saudi Arabian Oil Company (2222.SR)\n\n*All figures below are from the `get_stock_profile` and `dividend_info` tools.*\n\n## Company Snapshot\n- **Name:** Saudi Arabian Oil Company (Saudi Aramco) — Energy sector *(get_stock_profile)*\n- **Market Cap:** ~6.33 trillion SAR *(get_stock_profile)*\n\n## Price & Performance\n- **Current Price:** 26.06 SAR *(get_stock_profile, dividend_info)*\n- **Trailing Returns** *(get_stock_profile)*:\n  - 1 Week: −2.0%\n  - 1 Month: −0.3%\n  - 3 Months: −2.3%\n  - 6 Months: +3.2%\n  - 1 Year: +15.2%\n- **Trading Context:** Price is above its 200-day SMA; RSI(14) of 43.45 suggests neutral momentum; volatility regime flagged as HIGH; 2-year max drawdown of −17.0% *(get_stock_profile)*\n\n## Valuation\n- **P/E Ratio:** 15.49 — the market prices the stock at roughly 15.5× its earnings *(get_stock_profile)*\n- **Return on Equity (ROE):** 23.75% — indicates strong profitability relative to shareholders' equity *(get_stock_profile)*\n- **Composite Score:** 75.0 per the platform's quantitative model *(get_stock_profile)* — this is a data output, not a personal recommendation\n\n## Dividends\n- **Annual Dividend per Share:** 1.3577 SAR *(dividend_info)*\n- **Dividend Yield:** 5.21% *(dividend_info, get_stock_profile)*\n- **Payout Ratio:** 78.95% — nearly 79% of earnings are distributed as dividends *(dividend_info)*\n- *Consistency check:* 1.3577 SAR ÷ 26.06 SAR ≈ 5.21%, matching the reported yield.\n\n## Educational Takeaways\n1. **Income-oriented profile:** A ~5.2% yield with a high payout ratio reflects a mature, dividend-focused business model. A high payout ratio (near 79%) means less retained earnings for reinvestment.\n2. **Valuation lens:** A P/E of ~15.5 paired with ROE above 23% suggests the market applies a moderate earnings multiple despite strong profitability.\n3. **Risk context:** The HIGH volatility flag and −17% max drawdown remind us that even large-cap dividend stocks can experience meaningful price swings.\n\n> ⚠️ **Disclaimer:** This is educational information only, based on tool data as reported — not financial advice. Figures may change; verify current data before making any decisions.",
+    "grounded_profile": {
+      "code": "2222",
+      "name": "Saudi Arabian Oil Company",
+      "price": 26.06,
+      "currency": "SAR",
+      "pe": 15.4911,
+      "div_yield": 5.21,
+      "roe": 23.748,
+      "score": 75.0,
+      "rating": "شراء"
+    },
+    "currency_ok": true,
+    "grounding_checked": 11,
+    "grounding_problems": [
+      "stated 'Price is above its 200' not found in tool payload",
+      "stated 'ROE above 23' not found in tool payload"
+    ],
+    "pass": false
+  },
+  {
+    "symbol": "1120.SR",
+    "market": "Saudi",
+    "expected_currency": "SAR",
+    "http_status": 200,
+    "elapsed_s": 28.0,
+    "event_kinds": [
+      "start",
+      "tool_call",
+      "tool_result",
+      "tool_call",
+      "tool_result",
+      "answer",
+      "done"
+    ],
+    "confidence": "high",
+    "tools_used": [
+      "get_stock_profile",
+      "dividend_info"
+    ],
+    "llm_used": true,
+    "answer": "# Educational Profile: Al Rajhi Bank (1120.SR)\n\n## Company Overview\nAl Rajhi Banking and Investment Corporation (code: 1120) operates in the **Financial Services** sector, with a market capitalization of approximately **SAR 402 billion** *(source: get_stock_profile)*.\n\n## Price & Momentum\n- **Current price:** SAR 67.45 *(get_stock_profile)*\n- **Trailing returns:** +0.30% (1W), +7.83% (1M), +1.12% (3M), +5.93% (6M), +10.31% (1Y) *(get_stock_profile)*\n- Trading **above its 200-day simple moving average**, with an RSI(14) of **61.43** (neutral-to-mildly-strong territory) and a normal volatility regime *(get_stock_profile)*\n- **2-year max drawdown:** −13.77% *(get_stock_profile)*\n\n## Valuation\n- **P/E ratio:** 16.11 — the price equals roughly 16 years of current earnings *(get_stock_profile)*\n- **Return on Equity (ROE):** 18.52% — a measure of how efficiently the bank generates profit from shareholders' equity *(get_stock_profile)*\n\n## Dividends\n- **Dividend yield:** 3.46% *(dividend_info)*\n- **Annual dividend per share:** SAR 2.3338 *(dividend_info)*\n- **Payout ratio:** 40.06% — meaning the bank distributes about 40% of earnings as dividends, retaining the remainder *(dividend_info)*\n\n## Educational Takeaways\n- The payout ratio below 50% suggests room for dividend sustainability relative to earnings, though this depends on future profitability.\n- The P/E of ~16 and ROE of ~18.5% are metrics commonly compared against sector peers when assessing relative valuation.\n- Dividend yield is inversely related to price: if the share price rises and the dividend stays fixed, the yield falls.\n\n---\n*This is educational information based on the cited tool data, not financial advice. Always do your own research or consult a licensed advisor before making investment decisions.*",
+    "grounded_profile": {
+      "code": "1120",
+      "name": "Al Rajhi Banking and Investment Corporation",
+      "price": 67.45,
+      "currency": "SAR",
+      "pe": 16.1058,
+      "div_yield": 3.46,
+      "roe": 18.521,
+      "score": 68.0,
+      "rating": "شراء"
+    },
+    "currency_ok": true,
+    "grounding_checked": 7,
+    "grounding_problems": [],
+    "pass": true
+  }
+]
