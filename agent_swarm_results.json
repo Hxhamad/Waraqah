@@ -1,0 +1,80 @@
+[
+ {
+  "persona": "أبو فيصل — مستثمر تقليدي",
+  "q": "احلل لي سهم أرامكو 2222 — هل يشتري الآن؟",
+  "tools": [
+   "get_stock_profile"
+  ],
+  "tool_results": 1,
+  "grounded_hits": 7,
+  "arabic": true,
+  "answer_head": "# تحليل تعليمي لسهم أرامكو السعودية (2222)  **المصدر لجميع البيانات أدناه:** أداة `get_stock_profile`  ## 📋 نبذة عن الشركة - **الاسم:** شركة الزيت العربية السعو"
+ },
+ {
+  "persona": "أبو فيصل — مستثمر تقليدي",
+  "q": "وش توزيعات الراجحي 1120؟",
+  "tools": [
+   "get_stock_profile",
+   "dividend_info"
+  ],
+  "tool_results": 2,
+  "grounded_hits": 5,
+  "arabic": true,
+  "answer_head": "## توزيعات مصرف الراجحي (1120)  وفقاً لأداة **dividend_info**:  | المؤشر | القيمة | |---|---| | التوزيع السنوي للسهم | **2.3338 ريال** | | عائد التوزيع | **3.46"
+ },
+ {
+  "persona": "QuantKhaled — متداول كمي",
+  "q": "Compare AAPL and MSFT on valuation and give me the",
+  "tools": [
+   "get_stock_profile"
+  ],
+  "tool_results": 1,
+  "grounded_hits": 6,
+  "arabic": false,
+  "answer_head": "# AAPL vs MSFT Valuation Comparison  **Important limitation:** I only received tool data for AAPL. No tool returned MSFT data, and I won't fabricate numbers. He"
+ },
+ {
+  "persona": "QuantKhaled — متداول كمي",
+  "q": "What is the RSI and SMA200 trend for 2222 right no",
+  "tools": [
+   "get_stock_profile"
+  ],
+  "tool_results": 1,
+  "grounded_hits": 5,
+  "arabic": false,
+  "answer_head": "**Saudi Aramco (2222) — Technical Snapshot** *(source: get_stock_profile)*  **RSI (14-period): 43.45** - Below the neutral 50 level, suggesting mildly bearish s"
+ },
+ {
+  "persona": "Nadia — مستخدمة جديدة تعلم الاستثمار",
+  "q": "What does P/E ratio mean for Apple stock?",
+  "tools": [
+   "get_stock_profile"
+  ],
+  "tool_results": 1,
+  "grounded_hits": 6,
+  "arabic": false,
+  "answer_head": "## What is the P/E Ratio?  The **Price-to-Earnings (P/E) ratio** measures how much investors are willing to pay for each $1 of a company's annual earnings. It's"
+ },
+ {
+  "persona": "Nadia — مستخدمة جديدة تعلم الاستثمار",
+  "q": "Is Toyota 7203 a good company? Explain simply.",
+  "tools": [
+   "get_stock_profile"
+  ],
+  "tool_results": 1,
+  "grounded_hits": 5,
+  "arabic": true,
+  "answer_head": "# Toyota (7203.T) — Simple Breakdown  All figures below come from the **get_stock_profile** tool.  ## What it is - Toyota Motor Corporation, in the **Consumer C"
+ },
+ {
+  "persona": "Portfolio-Pete — مستثمر محفظة",
+  "q": "Analyze my portfolio: 100 shares Aramco at 30, 50 ",
+  "tools": [
+   "market_overview"
+  ],
+  "tool_results": 1,
+  "grounded_hits": 1,
+  "arabic": false,
+  "answer_head": "## Portfolio Snapshot  **Aramco (2222)** — data from [market_overview] - Current price: **SAR 26.06** (down **-1.96%** today) - Your cost: SAR 30 × 100 shares ="
+ }
+]
