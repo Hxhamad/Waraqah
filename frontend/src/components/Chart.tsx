@@ -1,7 +1,7 @@
 'use client';
 
 import { useEffect, useRef, useState } from 'react';
-import { createChart, IChartApi, CandlestickData, HistogramData, LineData, Time } from 'lightweight-charts';
+import { createChart, CandlestickSeries, HistogramSeries, LineSeries, IChartApi, CandlestickData, HistogramData, LineData, Time } from 'lightweight-charts';
 import type { StockProfile } from '@/lib/types';
 
 interface ChartProps {
@@ -85,8 +85,8 @@ export default function Chart({ stock }: ChartProps) {
       },
     });
 
-    // Use type assertion to bypass strict typing in v5
-    const candleSeries = (chart as any).addCandlestickSeries({
+    // lightweight-charts v5: series created via chart.addSeries(Definition, options)
+    const candleSeries = chart.addSeries(CandlestickSeries, {
       upColor: '#12a55f',
       downColor: '#e5484d',
       borderUpColor: '#12a55f',
@@ -95,7 +95,7 @@ export default function Chart({ stock }: ChartProps) {
       wickDownColor: '#e5484d',
     });
 
-    const volumeSeries = (chart as any).addHistogramSeries({
+    const volumeSeries = chart.addSeries(HistogramSeries, {
       priceFormat: { type: 'volume' },
       priceScaleId: '',
     });
@@ -103,7 +103,7 @@ export default function Chart({ stock }: ChartProps) {
       scaleMargins: { top: 0.85, bottom: 0 },
     });
 
-    const smaSeries = (chart as any).addLineSeries({
+    const smaSeries = chart.addSeries(LineSeries, {
       color: '#9a9791',
       lineWidth: 2,
     });

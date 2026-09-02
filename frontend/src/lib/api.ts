@@ -1,5 +1,5 @@
 import useSWR from 'swr';
-import type { StockProfile, MoversData, MacroData, WatchlistItem, Alert, AgentChatResponse, ScreenerResult } from './types';
+import type { StockProfile, MoversData, MacroData, WatchlistItem, Alert, ScreenerResult } from './types';
 
 const API_URL = process.env.NEXT_PUBLIC_API_URL || 'http://localhost:8123';
 
@@ -63,13 +63,53 @@ export function useScreener(params?: Record<string, string | number>) {
   );
 }
 
-export async function sendAgentMessage(message: string, context?: Record<string, unknown>): Promise<AgentChatResponse> {
+export interface AgentAnswer {
+  text: string;
+  tools_used: string[];
+  confidence: string;
+  language: string;
+  llm_used: boolean;
+}
+
+/**
+ * POST /agent/chat and consume the SSE stream.
+ * Returns the final `answer` event payload, or null if the agent failed.
+ */
+export async function sendAgentMessage(message: string, context?: Record<string, unknown>): Promise<AgentAnswer | null> {
   const res = await fetch(`${API_URL}/agent/chat`, {
     method: 'POST',
     headers: { 'Content-Type': 'application/json' },
     body: JSON.stringify({ message, context }),
   });
-  return res.json();
+  if (!res.ok || !res.body) return null;
+
+  const reader = res.body.getReader();
+  const decoder = new TextDecoder();
+  let buffer = '';
+  let currentEvent = '';
+  let answer: AgentAnswer | null = null;
+
+  while (true) {
+    const { done, value } = await reader.read();
+    if (done) break;
+    buffer += decoder.decode(value, { stream: true });
+    const blocks = buffer.split('\n\n');
+    buffer = blocks.pop() ?? '';
+    for (const block of blocks) {
+      for (const line of block.split('\n')) {
+        if (line.startsWith('event: ')) {
+          currentEvent = line.slice(7).trim();
+        } else if (line.startsWith('data: ') && currentEvent === 'answer') {
+          try {
+            answer = JSON.parse(line.slice(6)) as AgentAnswer;
+          } catch {
+            /* skip malformed event */
+          }
+        }
+      }
+    }
+  }
+  return answer;
 }
 
 export async function addToWatchlist(symbol: string): Promise<void> {

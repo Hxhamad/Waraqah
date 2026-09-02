@@ -28,12 +28,19 @@ export default function AnalystPanel({ stock }: AnalystPanelProps) {
     setLoading(true);
 
     try {
-      const response = await sendAgentMessage(userMessage, { symbol: stock?.code });
-      if (response.detail?.error) {
-        setAgentOnline(false);
-      } else if (response.response) {
+      const answer = await sendAgentMessage(userMessage, { symbol: stock?.code });
+      if (answer && answer.text) {
         setAgentOnline(true);
-        setMessages((prev) => [...prev, { role: 'agent', content: response.response! }]);
+        const badge = answer.tools_used?.length
+          ? `\n\n_Sources: ${answer.tools_used.join(', ')} · confidence: ${answer.confidence}_`
+          : '';
+        setMessages((prev) => [...prev, { role: 'agent', content: answer.text + badge }]);
+      } else {
+        setAgentOnline(false);
+        setMessages((prev) => [
+          ...prev,
+          { role: 'agent', content: 'Agent is unavailable right now — please try again in a moment.' },
+        ]);
       }
     } catch {
       setAgentOnline(false);
